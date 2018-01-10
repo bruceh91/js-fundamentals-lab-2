@@ -1,9 +1,11 @@
 let name = "Bruce the dragon";
+let job = "Pilot";
+let Description = "I am a strong independant dragon who don't need to man!";
 let interests = ["flying","breathing fire","game of thrones","spyro"];
 let jobHistory =["Actor for Dreamworks where I played the dragon in the movie Shrek.",
                 "Cook at Burger-King where I was the flamer for the flame-grilled burger.",
                 "Newspaper delivery dragon for the Birmingham Times where I held the record for fastest delivery dragon in the tri-county area."];
-let skills = ["flight","Microsoft Word", "acting", "cooking"];
+let skills = [{skl: "flight", cool: true}, {skl: "Microsoft Word", cool: false}, {skl: "acting", cool: false}, {skl: "cooking", cool: true}];
 
 
 function Capitalize (name){
@@ -13,30 +15,45 @@ function Capitalize (name){
 
 let nameInAllCaps = Capitalize(name);
 
-
-let newCompanyName = "Walmart";
-let newJobTitle = "Cashier";
-let newJobDesr = "be the cashier";
-
-function displayPosition (newCompanyName, newJobTitle, newJobDesr) {
-    console.log ("Company Name: " + newCompanyName);
-    console.log ("Career: " + newJobTitle);
-    console.log ("Description: " + newJobDesr);
+function displayPosition (job, Description) {
+    console.log ("Career: " + job);
+    console.log ("Description: " + Description);
 }
 
 console.log(nameInAllCaps);
-displayPosition(newCompanyName, newJobTitle, newJobDesr);
+displayPosition(job, Description);
 
 
-function displayProperty (x){
-    for (i=0;i<x.length;i++){
-        console.log("* " + x[i]);
+function displayProperty (prop){
+    for (let i=0;i < prop.length;i++){
+        console.log("* " + prop[i]);
     }
 }
+
+function addBam (x) {
+    for (let i = 0; i < x.length; i++ ){
+        if (x[i].cool === true) {
+            x[i].skl = "BAM: " + x[i].skl;
+            // console.log("got here")
+        }
+        // console.log(x[i].skl);
+    }
+}
+
+addBam(skills);
+
+function displaySkills(skills){
+    for (let i = 0; i < skills.length; i++){
+        console.log("* " + skills[i].skl);
+    }
+}
+
+console.log(skills);
+
 console.log("My Interests: ");
 displayProperty(interests);
 console.log("My Previous Experience: ");
 displayProperty(jobHistory);
 console.log("My Skills: ");
-displayProperty(skills);
+displaySkills(skills);
 
